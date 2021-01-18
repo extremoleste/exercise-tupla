@@ -12,7 +12,20 @@ sumThirdColumn = 0
 
 for i in range(0, 3):
     for j in range(0, 3):
-        number = int(input(f"Digite um valor para posição[{i}, {j}]: "))
+        def inteiro(texto):
+            falso = False
+            zero = 0
+            while True:
+                number = str(input(texto))
+                if number.isnumeric():
+                    zero = int(number)
+                    falso = True
+                else:
+                    print('\033[31m"ERROR!!,DIGITE APENAS NÚMEROS"\033[m')
+                if falso:
+                    break
+            return zero
+        number = inteiro(f"Digite um valor para posição[{i}, {j}]: ")
         internNumbers.append(number)
     numbers.append(internNumbers[:])
     del internNumbers[:]
